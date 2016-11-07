@@ -23,6 +23,12 @@ process.stdin.on('data', function (data) {
   	fs.readFile(input, 'utf8', commands.head);
   } else if (cmd === 'tail') {
   	fs.readFile(input, 'utf8', commands.tail);
+  } else if (cmd === 'sort') {
+    fs.readFile(input, 'utf8', commands.sort);
+  } else if (cmd === 'wc') {
+    fs.readFile(input, 'utf8', commands.wc);
+  } else if (cmd === 'uniq') {
+    fs.readFile(input, 'utf8', commands.uniq);
   }
 
   process.stdout.write('\nprompt > ');

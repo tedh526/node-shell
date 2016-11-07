@@ -30,5 +30,31 @@ module.exports = {
       if (err) throw err;
       var newData = data.split('\n').slice(-5);
       console.log(newData.join('\n'));
-  }
+  },
+  sort: function(err, data) {
+      if (err) throw err;
+      var newData = data.split('\n').sort().join('\n');
+      console.log(newData);
+  },
+  wc: function(err, data) {
+      if (err) throw err;
+      var newData = data.split('\n').sort().length;
+      console.log(newData);
+  },
+  uniq: function(err, data) {
+      if (err) throw err;
+      var newData = data.split('\n');
+      var uniqData = [];
+      newData.forEach(function (line, idx) {
+        previousLine = newData[idx -1];
+        if (previousLine) {
+          if (previousLine !== line) {
+            uniqData.push(line);
+          }
+        } else {
+          uniqData.push(line);
+        }
+      });
+      console.log(uniqData.join('\n'));
+  },
 }
